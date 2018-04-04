@@ -51,7 +51,11 @@ class CRM
     print 'Enter a Note: '
     note = gets.chomp
 
-    Contact.create(first_name, last_name, email, note)
+    contact = Contact.create(
+      first_name: first_name,
+      last_name:  last_name,
+      email:      email,
+      note:       note)
   end
 
   def modify_existing_contact
@@ -77,17 +81,19 @@ class CRM
   end
 
   def display_all_contacts
-    Contact.all
+    Contact.all.each do |i|
+      puts "#{i.id} #{i.first_name} #{i.last_name} #{i.email} #{i.note}"
+    end
   end
 
   def search_by_attribute
     puts "Find contact by first_name, last_name, or email?"
     attribute = gets.chomp
 
-    puts "What #{ attribue } are you looking for? "
+    puts "What #{ attribute } are you looking for? "
     value = gets.chomp
 
-    n = Contact.find_by(attribue, value)
+    n = Contact.find_by(attribute, value)
     puts "#{n.id} #{n.first_name} #{n.last_name} #{n.email} #{note}"
   end
 
