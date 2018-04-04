@@ -183,9 +183,9 @@ class Contact
 end
 
 
-contact1 = Contact.create('Sean', 'Clarke', 'email@email.com', 'quiet')
-contact2 = Contact.create('Freddie', 'Gibbs', 'fgibbs@email.com', 'hardcore')
-contact3 = Contact.create('Vince', 'Staples', 'stapler@rap.com', 'loud')
+# contact1 = Contact.create('Sean', 'Clarke', 'email@email.com', 'quiet')
+# contact2 = Contact.create('Freddie', 'Gibbs', 'fgibbs@email.com', 'hardcore')
+# contact3 = Contact.create('Vince', 'Staples', 'stapler@rap.com', 'loud')
 #
 #
 # p Contact.find_by('first-name', 'Dude')
@@ -195,6 +195,6 @@ contact3 = Contact.create('Vince', 'Staples', 'stapler@rap.com', 'loud')
 # p contact1
 # p Contact.all
 # contact3.delete
-p Contact.all
-Contact.delete_all
-p Contact.all
+# p Contact.all
+# Contact.delete_all
+# p Contact.all
