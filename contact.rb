@@ -43,15 +43,35 @@ class Contact
   # 1. which of the contact's attributes you want to update
   # 2. the new value for that attribute
   # and then make the appropriate change to the contact
-  def update
+  def update(old_attribute, new_attribute)
+
+    if old_attribute == 'first-name'
+        self.first_name = new_attribute
+        return self
+
+
+    elsif attribute == "last-name"
+        self.last_name = new_attribute
+        return self
+
+    elsif attribute == 'email'
+        self.email = new_attribute
+        return self
+
+    elsif attribute == 'note'
+        self.note = new_attribute
+      return self
+    end
+
 
   end
+
 
   # This method should work similarly to the find method above
   # but it should allow you to search for a contact using attributes other than id
   # by specifying both the name of the attribute and the value
   # eg. searching for 'first_name', 'Betty' should return the first contact named Betty
-  def self.find_by(attribue, value)
+  def self.find_by(attribute, value)
     variable = "Error"
 
     if attribute == 'first-name'
@@ -95,17 +115,21 @@ class Contact
 
   # This method should delete all of the contacts
   def self.delete_all
-
+    @@contacts = []
   end
 
   def full_name
-
+    "#{ first_name } #{ last_name }"
   end
 
   # This method should delete the contact
   # HINT: Check the Array class docs for built-in methods that might be useful here
   def delete
-
+    @@contacts.each do |cont|
+      if cont.id = self.id
+        @@contacts.delete(cont)
+      end
+    end
   end
 
   def save
@@ -150,14 +174,27 @@ class Contact
     @note = note
   end
 
+  def id=(id)
+    @id = id
+  end
+
   # Feel free to add other methods here, if you need them.
 
 end
 
 
-Contact.create('Sean', 'Clarke', 'email@email.com', 'quiet')
-Contact.create('Freddie', 'Gibbs', 'fgibbs@email.com', 'hardcore')
-Contact.create('Vince', 'Staples', 'stapler@rap.com', 'loud')
-
-
-p Contact.find_by(first-name, 'Freddie')
+contact1 = Contact.create('Sean', 'Clarke', 'email@email.com', 'quiet')
+contact2 = Contact.create('Freddie', 'Gibbs', 'fgibbs@email.com', 'hardcore')
+contact3 = Contact.create('Vince', 'Staples', 'stapler@rap.com', 'loud')
+#
+#
+# p Contact.find_by('first-name', 'Dude')
+# p Contact.find_by('first-name', 'Freddie')
+# p contact1
+# contact1.update('first-name', 'Behram')
+# p contact1
+# p Contact.all
+# contact3.delete
+p Contact.all
+Contact.delete_all
+p Contact.all
